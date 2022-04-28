@@ -13,14 +13,6 @@ class ItemData:
 
 
 def main():
-    state1 = "Massachusetts"
-    state2 = "New Hampshire"
-    state3 = "Maine"
-
-    itemList = []
-    itemList = ItemData
-    calculateTotalCharge(state1, itemList)
-
     return
 
 
@@ -30,29 +22,33 @@ def calculateTotalCharge(state, itemList):
     taxClothes = 0.0  # tax for clothes
     taxElse = 0.0  # tax for everything else
 
+    # get taxes for each state
     if state == "Massachusetts":
-        taxWic =
-        taxClothes =
-        taxElse =
+        taxWic = 0.0
+        taxClothes = 0.0
+        taxElse = 0.0625
     elif state == "New Hampshire":
-        taxWic =
-        taxClothes =
-        taxElse =
+        taxWic = 0.0
+        taxClothes = 0.0
+        taxElse = 0.0
     else:
-        taxWic =
-        taxClothes =
-        taxElse =
+        taxWic = 0.0
+        taxClothes = 0.055
+        taxElse = 0.055
 
-    for item in itemList:
-        if item.type == "Wic":
-            totalCharge = totalCharge + item.price
-            totalCharge = totalCharge + (totalCharge*taxWic)
-        elif item.type == "Clothes":
-            totalCharge = totalCharge + item.price
-            totalCharge = totalCharge + (totalCharge * taxClothes)
-        else:
-            totalCharge = totalCharge + item.price
-            totalCharge = totalCharge + (totalCharge * taxElse)
+    if len(itemList) > 0:  # only calculate if there is something in the shopping cart
+        for item in itemList:
+            if item.type == "Wic":
+                totalCharge = totalCharge + item.price
+                totalCharge = totalCharge + (item.price*taxWic)
+            elif item.type == "Clothes":
+                totalCharge = totalCharge + item.price
+                totalCharge = totalCharge + (item.price*taxClothes)
+            else:
+                totalCharge = totalCharge + item.price
+                totalCharge = totalCharge + (item.price*taxElse)
+    else:
+        return totalCharge  # returns 0.0
 
     return totalCharge
 
