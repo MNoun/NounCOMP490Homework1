@@ -5,4 +5,4 @@ Class: COMP490 Senior Design and Development
 Assignment: Homework 1
 
 Description:
-This project calculates the total charge for a customer at checkout. Function tests are avialable in tests/tests.py.
+This project calculates the total charge for a customer at checkout. Function tests are available in tests/tests.py.
